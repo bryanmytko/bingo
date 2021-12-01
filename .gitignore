@@ -3,6 +3,10 @@
 *.swp
 *.swo
 
+# OS
+
+.DS_Store
+
 *.rbc
 capybara-*.html
 .rspec
