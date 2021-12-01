@@ -9,6 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import "../stylesheets/application"
+import "../scripts/bingo"
+
 import "materialize-css/dist/js/materialize"
 
 Rails.start()
