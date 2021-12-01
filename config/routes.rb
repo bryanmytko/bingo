@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:create, :show, :update, :destroy]
 
-  # match ':id', constraints: { id: /[A-Z]\d{10}/ }, via: :get
+  get '/*path' => "cards#show", constraints: -> (req) { req.fullpath =~ /\/[a-zA-Z0-9]{10}/ }
 end
