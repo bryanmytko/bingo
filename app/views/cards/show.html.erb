@@ -1,2 +1,16 @@
-<h1><%= @card.title %></h1>
-<p><%= @card.entries %></p>
+<div class="container public-container white">
+  <div class="main-content">
+    <div class="title">
+      <span><%= @card.title %></span>
+      <span><%= @card.title %></span>
+    </div>
+    <div class="bingo-card">
+      <% @entries.each_with_index do |entry, i| %>
+        <div class="bingo-card__item">
+          <%= (i == @entries.length / 2) ? "FREE SPACE" : entry %>
+          <span class="bingo-card__checkbox"></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
