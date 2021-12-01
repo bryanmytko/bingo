@@ -1,2 +1,2 @@
-# bingo
+# Bingo Thingo
 Custom Bingo template generation
