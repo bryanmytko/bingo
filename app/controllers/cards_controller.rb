@@ -14,12 +14,15 @@ class CardsController < ApplicationController
     url =  params[:path]
     @card = Card.find_by(url: url)
     @entries = random_entries
-    puts @entries
-    # Neat CSS bingo card we can use?
-    # https://codepen.io/oliviale/pen/OrxWyK
+  end
+
+  def edit
+    @card = Card.find(params[:id])
   end
 
   def update
+    @card = Card.find(params[:id])
+    @card.update(card_params)
   end
 
   def destroy
