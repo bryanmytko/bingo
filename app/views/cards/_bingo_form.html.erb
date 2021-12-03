@@ -1,0 +1,27 @@
+
+<div class="container">
+  <div class="row">
+    <div class="logo logged-in"></div>
+    <div class="col s12">
+      <div class="card cyan lighten-4">
+        <div class="card-content">
+        <%= form_with model: @card, scope: :card, url: cards_path do |form| %>
+          <div class="field">
+            <%= form.label :title %><br />
+            <%= form.text_field :title %>
+          </div>
+          <div class="field">
+            <label>Entries (comma or newline separated):
+            <%= form.text_area :entries %>
+          </div>
+          <div class="actions">
+            <div class="card-action right-align">
+            <%= form.submit  class: "btn" %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

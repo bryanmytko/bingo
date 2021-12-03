@@ -1,18 +1,50 @@
 <div class="container">
-  <div class="col s8 push-s2">
-    <p class="navbar-text float-right">
-    <% if user_signed_in? %>
-      Welcome back,  <strong><%= current_user.email %></strong>.
-      <br />
-      <%# <%= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
-      <%= link_to "Logout?", destroy_user_session_path, method: :delete, :class => "navbar-link"  %>
+  <div class="row">
+    <div class="logo logged-in"></div>
+    <div class="col s12">
+      <div class="card cyan lighten-4">
+        <div class="card-content">
+          <% if user_signed_in? %>
+            Welcome back,  <strong><%= current_user.email %></strong>.
+            <%# <%= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
+            <%= link_to "Logout?", destroy_user_session_path, method: :delete, :class => "navbar-link"  %>
 
-      <!-- @TODO should show Card.all with a button for creating new, not rendering the form -->
-      <%= render "bingo_form" %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => "navbar-link"  %> |
-      <%= link_to "Login", new_user_session_path, :class => "navbar-link"  %>
-    <% end %>
-    </p>
+            <!-- @TODO should show Card.all with a button for creating new, not rendering the form -->
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12 l6">
+      <div class="card">
+        <div class="card-content">
+          <h4>My Cards</h4>
+          <table>
+            <tbody>
+              <% @cards.each do |card| %>
+                <tr>
+                  <td>
+                    <p class="bingo-card-title"><%= link_to card.title, edit_card_path(card) %><p>
+                    <a href="/<%= card.url %>" class="btn yellow lighten-4 black-text share-url">
+                      <%= URI.join(root_url, card.url).to_s %>
+                    </a>
+                    <span class="sm">(click to copy)</span>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <ul class="btn-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12 l6">
+      <div class="card purple lighten-5">
+        <div class="card-content">
+          <h4>Create a new card?</h4>
+          <a href="/cards/new" class="btn cyan waves-effect waves-light">New Bingo Card</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

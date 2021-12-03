@@ -15,6 +15,16 @@
   <body>
     <!-- <span class="notice"><%= notice %></p> -->
     <!-- <span class="alert"><%= alert %></p> -->
+    <main>
     <%= yield %>
+    </main>
+    <footer class="page-footer">
+      <div class="container center-align">
+        <span class="black-text">&copy; <%= DateTime.now.year %></span>
+        <a href="http://bryanmytko.com">Bryan Mytko</a>
+        <span class="black-text">&#9829;</a>
+        <a href="https://github.com/bryanmytko">Github</a>
+      </div>
+    </footer>
   </body>
 </html>
