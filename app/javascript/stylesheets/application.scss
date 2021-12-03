@@ -2,9 +2,28 @@
 
 body, html {
   margin: 0;
-  padding: 4rem 0;
-  background: #fff;
+  padding: 0;
+  background: #740c94;
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  background: #00BCD2;
+  font-size: 0.8em;
+  margin: 0;
+  padding: 1em  0;
+}
+
+.no-margin-bottom { margin-bottom: 0px !important }
 
 .container.main-container {
   min-height: 100vh;
@@ -17,7 +36,16 @@ body, html {
 }
 
 a {
-  color: #fff;
+  color: #000;
+}
+
+.devise-shared-links a {
+  font-size: 12.5px;
+}
+
+.bingo-card-title {
+  font-size: 1.125rem;
+  color: #000;
 }
 
 .card-panel {
@@ -34,15 +62,26 @@ label {
 }
 
 .logo {
-  margin-top: 20%;
+  margin-top: 10%;
   background: url('../images/logo.png') 0 0 no-repeat;
   background-size: contain;
+  background-position: center;
   width: 100%;
   height: 200px;
 }
 
+.logo.logged-in {
+  margin-top: 0;
+  height: 100px;
+}
+
 .btn {
   background: #740c94;
+}
+
+table .btn {
+  text-transform: lowercase;
+  margin: 4px 0;
 }
 
 textarea {
@@ -73,11 +112,12 @@ $brown: lightblue;
 
 * {
     box-sizing: border-box;
-  }
+}
 
 body {
-  background: #f8f8f8;
   font-family: "Nunito", sans-serif;
+  // box-shadow: inset 0 8px 0 0 #ff9aac;
+  padding-top: 8px;
 }
 
 aside.context {
@@ -99,30 +139,30 @@ aside.context {
   }
 }
 
-footer {
-  text-align: center;
-  margin: 3em auto;
-  width: 100%;
-  a {
-    text-decoration: none;
-    display: inline-block;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: transparent;
-    border: 1px dashed #333;
-    color: #333;
-    margin: 5px;
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    .icons {
-      margin-top: 12px;
-      display: inline-block;
-      font-size: 20px;
-    }
-  }
-}
+// footer {
+//   text-align: center;
+//   margin: 3em auto;
+//   width: 100%;
+//   a {
+//     text-decoration: none;
+//     display: inline-block;
+//     width: 45px;
+//     height: 45px;
+//     border-radius: 50%;
+//     background: transparent;
+//     border: 1px dashed #333;
+//     color: #333;
+//     margin: 5px;
+//     &:hover {
+//       background: rgba(255, 255, 255, 0.1);
+//     }
+//     .icons {
+//       margin-top: 12px;
+//       display: inline-block;
+//       font-size: 20px;
+//     }
+//   }
+// }
 
 .main-content {
   max-width: 600px;
@@ -262,3 +302,22 @@ footer {
     border: 2px dashed $yellow-dark;
   }
 }
+
+.xs {font-size: 0.75rem!important}
+.sm {font-size: 0.875rem!important}
+.base {font-size: 1rem!important}
+.lg {font-size: 1.125rem!important}
+.xl {font-size: 1.25rem!important}
+.xl2 {font-size: 1.5rem!important}
+.xl3 {font-size: 1.875rem!important}
+.xl4 {font-size: 2.25rem!important}
+.xl5 {font-size: 3rem!important}
+.xl6 {font-size: 4rem!important}
+.fs1 {font-size: 1vw!important}
+.fs2 {font-size: 1.4vw!important}
+.fs3 {font-size: 1.6vw!important}
+.fs4 {font-size: 1.8vw!important}
+.fs5 {font-size: 2vw!important}
+.fs6 {font-size: 2.2vw!important}
+.fs7 {font-size: 2.4vw!important}
+.fs8 {font-size: 2.6vw!important}

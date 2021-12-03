@@ -6,6 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
       this.classList.toggle('active');
     });
   }
+
+  const shareLinks = document.querySelectorAll(".share-url");
+  console.log(shareLinks)
+
+  for(let i = 0; i < shareLinks.length; i++) {
+    shareLinks[i].addEventListener('click', function(e) {
+      navigator.clipboard.writeText(this.innerHTML).then(() => {
+        alert('copied to clipboard');
+      });;
+      e.preventDefault();
+    });
+  }
 });
 
 
