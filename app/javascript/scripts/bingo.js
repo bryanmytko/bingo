@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   for(let i = 0; i < shareLinks.length; i++) {
     shareLinks[i].addEventListener('click', function(e) {
-      navigator.clipboard.writeText(this.innerHTML).then(() => {
-        alert('copied to clipboard');
+      navigator.clipboard.writeText(this.href).then(() => {
+        alert('Copied to clipboard!');
       });;
       e.preventDefault();
     });
