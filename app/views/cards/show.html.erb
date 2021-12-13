@@ -1,8 +1,8 @@
-<div class="container public-container white">
+<div class="container public-container">
+  <%= render "logo", css_classes: "small" %>
   <div class="main-content">
     <div class="title">
-      <span><%= @card.title %></span>
-      <span><%= @card.title %></span>
+      <h3><%= @card.title %></h3>
     </div>
     <div class="bingo-card">
       <% @entries.each_with_index do |entry, i| %>

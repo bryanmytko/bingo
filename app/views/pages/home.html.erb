@@ -1,21 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="logo logged-in"></div>
-    <div class="col s12">
-      <div class="card purple lighten-5">
-        <div class="card-content">
-          <% if user_signed_in? %>
-            Welcome back,  <strong><%= current_user.email %></strong>
-            <%# <%= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
-            <%= link_to "(logout)", destroy_user_session_path, method: :delete, :class => "navbar-link"  %>
-
-            <!-- @TODO should show Card.all with a button for creating new, not rendering the form -->
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m12 l6">
-      <div class="card">
+  <%= render "logo" %>
+   <div class="col s12 m12 l6">
+      <div class="card cyan lighten-5">
         <div class="card-content">
           <h3>My Cards</h3>
           <p>To share these with your friends, click the button to copy the link and simply send that to them.</p>
@@ -27,13 +14,18 @@
               <% @cards.each do |card| %>
                 <tr>
                   <td>
-                    <p class="bingo-card-title"><%= link_to card.title, edit_card_path(card) %><p>
                     <h4>
+                      <p class="bingo-card-title"><%= card.title %></p>
+                    </h4>
+                    <p>
                       <a href="/<%= card.url %>" class="btn cyan lighten-2 black-text share-url">
                         <i class="material-icons left">content_copy</i>
                         click to copy
-                      </a>
-                    </h4>
+                      </a>&nbsp; &nbsp;
+                      <%= link_to "edit", edit_card_path(card) %> | 
+                      <%= link_to "delete", card_path(card), method: :delete %>
+                    </p>
+                    <br />
                   </td>
                 </tr>
               <% end %>
@@ -51,6 +43,19 @@
           <p>If you haven't created a card yet start here. You will be asked to fill out at least 75 terms to keep the game fun and exciting.</p>
           <br />
           <a href="/cards/new" class="btn yellow black-text waves-effect waves-light"><i class="material-icons left">add_box</i>Create Bingo Card!</a>
+        </div>
+      </div>
+    </div>
+     <div class="col s12">
+      <div class="card purple lighten-5">
+        <div class="card-content">
+          <% if user_signed_in? %>
+            You are currently signed in as <strong><%= current_user.email %></strong>
+            <%# <%= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
+            <%= link_to "(logout)", destroy_user_session_path, method: :delete, :class => "navbar-link"  %>
+
+            <!-- @TODO should show Card.all with a button for creating new, not rendering the form -->
+          <% end %>
         </div>
       </div>
     </div>
