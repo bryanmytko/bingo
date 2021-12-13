@@ -129,11 +129,14 @@ input[type=password] {
   box-sizing: border-box !important;
   padding: 0.2rem 1rem !important;
 }
-  // width: 20%;
-$yellow-light: skyblue;
-$yellow: blue;
-$yellow-dark: darkblue;
-$orange: skyblue;
+
+
+/* This stuff via: https://codepen.io/oliviale/pen/OrxWyK */
+
+$yellow-light: white;
+$yellow: white;
+$yellow-dark: #f58eab;
+$orange: white;
 $orange-dark: grey;
 $brown: lightblue;
 
@@ -164,31 +167,6 @@ aside.context {
     margin: 4em auto 0;
   }
 }
-
-// footer {
-//   text-align: center;
-//   margin: 3em auto;
-//   width: 100%;
-//   a {
-//     text-decoration: none;
-//     display: inline-block;
-//     width: 45px;
-//     height: 45px;
-//     border-radius: 50%;
-//     background: transparent;
-//     border: 1px dashed #333;
-//     color: #333;
-//     margin: 5px;
-//     &:hover {
-//       background: rgba(255, 255, 255, 0.1);
-//     }
-//     .icons {
-//       margin-top: 12px;
-//       display: inline-block;
-//       font-size: 20px;
-//     }
-//   }
-// }
 
 .main-content {
   max-width: 600px;
@@ -225,7 +203,8 @@ aside.context {
   grid-gap: 3px;
   grid-template-rows: repeat(5, 110px);
   grid-template-columns: repeat(5, 1fr);
-  text-transform: uppercase;
+  border-radius: 2rem;
+  padding: 2rem;
   &__item {
     background: $yellow-light;
     display: flex;
@@ -280,7 +259,6 @@ aside.context {
 .clear-button {
   margin: 2em 0 0;
   font: 700 16px 'Nunito', sans-serif;
-  text-transform: uppercase;
   cursor: pointer;
   display: inline-block;
   border: 2px dotted;
