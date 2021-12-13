@@ -25,7 +25,7 @@ h3 {
 }
 
 h4 {
-  margin: 0 0 1.7rem 0;
+  margin: 0 0 1em 0;
   font-weight: 600;
   font-size: 1.3rem;
 }
@@ -54,7 +54,7 @@ strong {
 
 .public-container {
   min-height: 100vh;
-  background: #fff;
+  margin-bottom: 4em;
 }
 
 a {
@@ -84,12 +84,17 @@ label {
 }
 
 .logo {
-  margin-top: 10%;
+  display: block;
+  margin: 1em 0;
   background: url('../images/logo.png') 0 0 no-repeat;
   background-size: contain;
   background-position: center;
   width: 100%;
-  height: 200px;
+  height: 10em;
+}
+
+.logo.small {
+  height: 5em;
 }
 
 .logo.logged-in {
@@ -188,17 +193,15 @@ aside.context {
 .main-content {
   max-width: 600px;
   width: 100%;
-  margin: 4em auto 0;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 .title {
-  background: $orange;
   color: #fff;
-  padding: 30px 10px;
   grid-column: span 5;
   text-align: center;
-  font: 72px/0.9 "Impact", cursive;
+  font: 72px/0.9;
   span {
     display: none;
     &:nth-child(1) {
@@ -295,7 +298,6 @@ aside.context {
   }
   .title {
     font: 50px/0.9 "Amatic SC", cursive;
-    padding: 20px;
   }
   .bingo-card {
     grid-template-rows: repeat(24, auto);
