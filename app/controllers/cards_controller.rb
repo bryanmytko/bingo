@@ -6,13 +6,16 @@ class CardsController < ApplicationController
   def create
     @card = current_user.cards.create(card_params)
 
-    # this should actually redirec to /hex or index page
-    redirect_to @card
+    redirect_to root_path
   end
 
   def show
-    url =  params[:path]
-    @card = Card.find_by(url: url)
+    if params[:path]
+      @card = Card.find_by(url: params[:path])
+    else
+      @card = Card.find(params[:id])
+    end
+
     @entries = random_entries
   end
 
@@ -23,9 +26,15 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     @card.update(card_params)
+
+    redirect_to root_path
   end
 
   def destroy
+    card = Card.find(params[:id])
+    card.destroy 
+
+    redirect_to root_path
   end
 
   private
