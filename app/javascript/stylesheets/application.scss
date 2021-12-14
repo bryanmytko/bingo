@@ -197,7 +197,7 @@ aside.context {
 }
 
 .bingo-card {
-  background: $yellow-dark;
+  background: #181818;
   padding: 10px;
   display: grid;
   grid-gap: 3px;
@@ -269,40 +269,40 @@ aside.context {
   }
 }
 
-@media screen and (max-width: 600px) {
-  .main-content {
-    max-width: none;
-    margin: 0;
-  }
-  .title {
-    font: 50px/0.9 "Amatic SC", cursive;
-  }
-  .bingo-card {
-    grid-template-rows: repeat(24, auto);
-    grid-template-columns: auto;
-    margin: 1em;
-  }
-  .bingo-card__item {
-    justify-content: flex-start;
-    padding: 15px 15px 15px 40px;
-    text-align: left;
-    &:after {
-      content: "";
-      opacity: 0;
-    }
-    &:nth-child(13) {
-      display: none;
-    }
-  }
-  .bingo-card__checkbox {
-    display: inline;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 10px;
-    border: 2px dashed $yellow-dark;
-  }
-}
+// @media screen and (max-width: 600px) {
+//   .main-content {
+//     max-width: none;
+//     margin: 0;
+//   }
+//   .title {
+//     font: 50px/0.9 "Amatic SC", cursive;
+//   }
+//   .bingo-card {
+//     grid-template-rows: repeat(24, auto);
+//     grid-template-columns: auto;
+//     margin: 1em;
+//   }
+//   .bingo-card__item {
+//     justify-content: flex-start;
+//     padding: 15px 15px 15px 40px;
+//     text-align: left;
+//     &:after {
+//       content: "";
+//       opacity: 0;
+//     }
+//     &:nth-child(13) {
+//       display: none;
+//     }
+//   }
+//   .bingo-card__checkbox {
+//     display: inline;
+//     position: absolute;
+//     width: 20px;
+//     height: 20px;
+//     left: 10px;
+//     border: 2px dashed $yellow-dark;
+//   }
+// }
 
 .xs {font-size: 0.75rem!important}
 .sm {font-size: 0.875rem!important}
