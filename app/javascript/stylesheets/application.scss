@@ -66,8 +66,17 @@ a {
 }
 
 .bingo-card-title {
-  font-size: 1.125rem;
-  color: #000;
+  background: #1b1b1b;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+
+  h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.5em 0 0.25em 0;
+  }
 }
 
 .card-panel {
@@ -130,195 +139,50 @@ input[type=password] {
   padding: 0.2rem 1rem !important;
 }
 
-
-/* This stuff via: https://codepen.io/oliviale/pen/OrxWyK */
-
-$yellow-light: white;
-$yellow: white;
-$yellow-dark: #f58eab;
-$orange: white;
-$orange-dark: grey;
-$brown: lightblue;
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-  // box-shadow: inset 0 8px 0 0 #ff9aac;
-  padding-top: 8px;
-}
-
-aside.context {
-  text-align: center;
-  color: #333;
-  line-height: 1.7;
-  a {
-    text-decoration: none;
-    color: #333;
-    padding: 3px 0;
-    border-bottom: 1px dashed;
-    &:hover {
-      border-bottom: 1px solid;
-    }
-  }
-  .explanation {
-    max-width: 700px;
-    margin: 4em auto 0;
-  }
-}
-
-.main-content {
-  max-width: 600px;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.title {
-  color: #fff;
-  grid-column: span 5;
-  text-align: center;
-  font: 72px/0.9;
-  span {
-    display: none;
-    &:nth-child(1) {
-      display: block;
-    }
-    @media screen and (max-width: 600px) {
-      &:nth-child(1) {
-        display: none;
-      }
-      &:nth-child(2) {
-        display: block;
-      }
-    }
-  }
-}
-
-.bingo-card {
-  background: #181818;
-  padding: 10px;
+.square-container {
   display: grid;
-  grid-gap: 3px;
-  grid-template-rows: repeat(5, 110px);
-  grid-template-columns: repeat(5, 1fr);
-  border-radius: 2rem;
-  padding: 2rem;
-  &__item {
-    background: $yellow-light;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    font-size: 12px;
-    line-height: 1.35;
-    user-select: none;
-    &:after {
-      content: "·";
-      position: absolute;
-      top: -114%;
-      left: -36%;
-      color: red;
-      width: 100%;
-      opacity: 0;
-      transition: 0.1s ease;
-      height: 0;
-      pointer-events: none;
-      font: 589px/0.5 "Impact", cursive;
-      text-align: center;
-      // transform: rotate(-45deg);
-    }
-    &.active:after {
-      height: 100%;
-      opacity: 0.7;
-    }
-  }
+  grid-template-columns:repeat(5,1fr);
+  grid-gap: 0.5em;
+  background: #1b1b1b;
+  padding: 1em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
-.bingo-card {
-  &__item {
-    padding: 15px;
-    &.active .bingo-card__checkbox:before {
-      content: "\2714";
-      position: absolute;
-      color: black;
-      left: 0;
-      top: -19px;
-      color: $orange;
-      font: 30px "Caveat Brush", cursive;
-    }
-  }
-  &__checkbox {
-    display: none;
-  }
+.square {
+  border: 1px solid;
+  aspect-ratio:1/1;
+  overflow: hidden;
+  background: #fff;
+  padding: 0.5em;
+  font-size: 1.5vw;
 }
 
-.clear-button {
-  margin: 2em 0 0;
-  font: 700 16px 'Nunito', sans-serif;
-  cursor: pointer;
-  display: inline-block;
-  border: 2px dotted;
-  color: $orange;
-  padding: 8px 10px;
-  &:hover {
-    color: $orange-dark;
-  }
+.bingo-card__checkbox:before {
+  content: "\2714";
+  position: absolute;
+  color: black;
+  left: 0;
+  top: -19px;
+  color: red;
+  font: 30px "Caveat Brush", cursive;
 }
 
-// @media screen and (max-width: 600px) {
-//   .main-content {
-//     max-width: none;
-//     margin: 0;
-//   }
-//   .title {
-//     font: 50px/0.9 "Amatic SC", cursive;
-//   }
-//   .bingo-card {
-//     grid-template-rows: repeat(24, auto);
-//     grid-template-columns: auto;
-//     margin: 1em;
-//   }
-//   .bingo-card__item {
-//     justify-content: flex-start;
-//     padding: 15px 15px 15px 40px;
-//     text-align: left;
-//     &:after {
-//       content: "";
-//       opacity: 0;
-//     }
-//     &:nth-child(13) {
-//       display: none;
-//     }
-//   }
-//   .bingo-card__checkbox {
-//     display: inline;
-//     position: absolute;
-//     width: 20px;
-//     height: 20px;
-//     left: 10px;
-//     border: 2px dashed $yellow-dark;
-//   }
-// }
-
-.xs {font-size: 0.75rem!important}
-.sm {font-size: 0.875rem!important}
-.base {font-size: 1rem!important}
-.lg {font-size: 1.125rem!important}
-.xl {font-size: 1.25rem!important}
-.xl2 {font-size: 1.5rem!important}
-.xl3 {font-size: 1.875rem!important}
-.xl4 {font-size: 2.25rem!important}
-.xl5 {font-size: 3rem!important}
-.xl6 {font-size: 4rem!important}
-.fs1 {font-size: 1vw!important}
-.fs2 {font-size: 1.4vw!important}
-.fs3 {font-size: 1.6vw!important}
-.fs4 {font-size: 1.8vw!important}
-.fs5 {font-size: 2vw!important}
-.fs6 {font-size: 2.2vw!important}
-.fs7 {font-size: 2.4vw!important}
-.fs8 {font-size: 2.6vw!important}
+.xs { font-size: 0.75rem !important }
+.sm { font-size: 0.875rem !important }
+.base { font-size: 1rem !important }
+.lg { font-size: 1.125rem !important }
+.xl { font-size: 1.25rem !important }
+.xl2 { font-size: 1.5rem !important }
+.xl3 { font-size: 1.875rem !important }
+.xl4 { font-size: 2.25rem !important }
+.xl5 { font-size: 3rem !important }
+.xl6 { font-size: 4rem !important }
+.fs1 { font-size: 1vw !important }
+.fs2 { font-size: 1.4vw !important }
+.fs3 { font-size: 1.6vw !important }
+.fs4 { font-size: 1.8vw !important }
+.fs5 { font-size: 2vw !important }
+.fs6 { font-size: 2.2vw !important }
+.fs7 { font-size: 2.4vw !important }
+.fs8 { font-size: 2.6vw !important }

@@ -1,15 +1,15 @@
 <div class="container public-container">
   <%= render "logo", css_classes: "small" %>
   <div class="main-content">
-    <div class="bingo-card-title">
+    <div class="title">
       <h3><%= @card.title %></h3>
     </div>
-    <div class="square-container">
+    <div class="bingo-card">
       <% @entries.each_with_index do |entry, i| %>
-      <div class="square">
-        <%= (i == @entries.length / 2) ? "FREE SPACE" : entry %>
-        <span class="bingo-card__checkbox"></span>
-      </div>
+        <div class="bingo-card__item">
+          <%= (i == @entries.length / 2) ? "FREE SPACE" : entry %>
+          <span class="bingo-card__checkbox"></span>
+        </div>
       <% end %>
     </div>
   </div>
