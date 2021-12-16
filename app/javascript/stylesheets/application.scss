@@ -65,7 +65,11 @@ a {
   font-size: 12.5px;
 }
 
-.bingo-card-title {
+#card_entries {
+  // border: 1px solid #000;
+}
+
+.public-container .bingo-card-title {
   background: #1b1b1b;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;

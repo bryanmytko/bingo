@@ -13,9 +13,12 @@
             <label>Entries (comma or newline separated):
             <%= form.text_area :entries %>
           </div>
+          <div class="field">
+            <p class="entries-validation center-align"></p>
+          </div>
           <div class="actions">
             <div class="card-action right-align">
-            <%= form.submit  class: "btn" %>
+              <%= form.submit class: "btn card-create-submit", disabled: "disabled" %>
             </div>
           </div>
         <% end %>
