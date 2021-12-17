@@ -143,6 +143,11 @@ input[type=password] {
   padding: 0.2rem 1rem !important;
 }
 
+.bingo-card-container {
+  margin: 0 auto;
+  width: 78vh; /* it's a square */
+}
+
 .square-container {
   display: grid;
   grid-template-columns:repeat(5,1fr);
@@ -159,18 +164,44 @@ input[type=password] {
   overflow: hidden;
   background: #fff;
   padding: 0.5em;
-  font-size: 1.5vw;
+  font-size: 1.4vh;
+  line-height: 1.4vh;
+  display: flex;
+  padding: 2px;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  position: relative;
 }
 
 .bingo-card__checkbox:before {
-  content: "\2714";
+  content: "•";
   position: absolute;
   color: black;
-  left: 0;
-  top: -19px;
+  left: -0.2%;
+  top: -124%;
   color: red;
-  font: 30px "Caveat Brush", cursive;
+  font: 43vh "Caveat Brush";
+  opacity: 0.7;
 }
+
+.bingo-card-square {
+  & .bingo-card__checkbox {
+    display: none;
+  }
+
+  &.active .bingo-card__checkbox {
+    display: block;
+  }
+}
+
+/* @TODO collapse to list on mobile */
+// @media screen and (max-width: 600px) {
+//   .square-container {
+//     grid-template-columns:repeat(1,1fr);
+//     font-size: 12px;
+//   }
+// }
+
 
 .xs { font-size: 0.75rem !important }
 .sm { font-size: 0.875rem !important }
