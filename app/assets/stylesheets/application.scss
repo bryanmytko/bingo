@@ -115,7 +115,7 @@
  .logo {
    display: block;
    margin: 1em 0;
-   background: url('/assets/logo.png') 0 0 no-repeat;
+   background-image: image-url('logo.png') 0 0 no-repeat;
    background-size: contain;
    background-position: center;
    width: 100%;
