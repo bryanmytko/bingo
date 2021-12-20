@@ -14,8 +14,8 @@
  *= require_self
  */
 
- @import "materialize-css/dist/css/materialize";
- @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;500&display=swap');
+@import "materialize-css/dist/css/materialize";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;500&display=swap');
 
  body, html {
    font-family: "Noto sans Display", "Helvetica", "Arial", sans-serif;
@@ -152,11 +152,20 @@
  input[type=text],
  input[type=email],
  input[type=password] {
+   font-size: 1rem;
    background-color: #fff !important;
    border-radius: 4px !important;
    border-bottom: 0 !important;
    box-sizing: border-box !important;
    padding: 0.2rem 1rem !important;
+ }
+
+ textarea {
+   padding: 1em !important;
+ }
+
+ textarea:focus, input:focus{
+   outline: none;
  }
 
  .bingo-card-container {
@@ -212,28 +221,28 @@
 
  /* @TODO collapse to list on mobile */
  // @media screen and (max-width: 600px) {
- //   .square-container {
- //     grid-template-columns:repeat(1,1fr);
- //     font-size: 12px;
- //   }
- // }
+   //   .square-container {
+     //     grid-template-columns:repeat(1,1fr);
+     //     font-size: 12px;
+     //   }
+     // }
 
 
- .xs { font-size: 0.75rem !important }
- .sm { font-size: 0.875rem !important }
- .base { font-size: 1rem !important }
- .lg { font-size: 1.125rem !important }
- .xl { font-size: 1.25rem !important }
- .xl2 { font-size: 1.5rem !important }
- .xl3 { font-size: 1.875rem !important }
- .xl4 { font-size: 2.25rem !important }
- .xl5 { font-size: 3rem !important }
- .xl6 { font-size: 4rem !important }
- .fs1 { font-size: 1vw !important }
- .fs2 { font-size: 1.4vw !important }
- .fs3 { font-size: 1.6vw !important }
- .fs4 { font-size: 1.8vw !important }
- .fs5 { font-size: 2vw !important }
- .fs6 { font-size: 2.2vw !important }
- .fs7 { font-size: 2.4vw !important }
- .fs8 { font-size: 2.6vw !important }
+     .xs { font-size: 0.75rem !important }
+     .sm { font-size: 0.875rem !important }
+     .base { font-size: 1rem !important }
+     .lg { font-size: 1.125rem !important }
+     .xl { font-size: 1.25rem !important }
+     .xl2 { font-size: 1.5rem !important }
+     .xl3 { font-size: 1.875rem !important }
+     .xl4 { font-size: 2.25rem !important }
+     .xl5 { font-size: 3rem !important }
+     .xl6 { font-size: 4rem !important }
+     .fs1 { font-size: 1vw !important }
+     .fs2 { font-size: 1.4vw !important }
+     .fs3 { font-size: 1.6vw !important }
+     .fs4 { font-size: 1.8vw !important }
+     .fs5 { font-size: 2vw !important }
+     .fs6 { font-size: 2.2vw !important }
+     .fs7 { font-size: 2.4vw !important }
+     .fs8 { font-size: 2.6vw !important }
