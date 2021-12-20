@@ -17,16 +17,19 @@
                     <h4>
                       <p class="bingo-card-title"><%= card.title %></p>
                     </h4>
-                    <p>
-                      <a href="/<%= card.url %>" class="btn cyan lighten-2 black-text share-url">
-                        <i class="material-icons left">content_copy</i>
-                        click to copy
-                      </a>&nbsp; &nbsp;
-                      <%= link_to "show", root_url + card.url %> |
-                      <%= link_to "edit", edit_card_path(card) %> | 
-                      <%= link_to "delete", card_path(card), method: :delete %>
-                    </p>
-                    <br />
+                    <div class="bingo-card-actions">
+                      <div>
+                        <a href="/<%= card.url %>" class="btn cyan lighten-2 black-text share-url">
+                          <i class="material-icons left">content_copy</i>
+                          click to copy
+                        </a>
+                      </div>
+                      <div class="text-actions">
+                        <%= link_to "show", root_url + card.url %> |
+                        <%= link_to "edit", edit_card_path(card) %> | 
+                        <%= link_to "delete", card_path(card), method: :delete %>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               <% end %>
