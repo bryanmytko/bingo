@@ -1,0 +1,58 @@
+* {
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+h3 {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.bingo-card-container {
+  margin: 0 auto;
+  width: 78vh; /* it's a square */
+}
+
+.square-container {
+  display: grid;
+  grid-template-columns:repeat(5,1fr);
+  grid-gap: 0.5em;
+  background: #1b1b1b;
+  padding: 1em;
+}
+
+.square {
+  border: 1px solid;
+  aspect-ratio:1/1;
+  overflow: hidden;
+  background: #fff;
+  padding: 0.5em;
+  font-size: 1.4vh;
+  line-height: 1.4vh;
+  display: flex;
+  padding: 2px;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  position: relative;
+}
+
+.bingo-card__checkbox:before {
+  content: "•";
+  position: absolute;
+  color: black;
+  left: -0.2%;
+  top: -124%;
+  color: red;
+  font: 43vh "Caveat Brush";
+  opacity: 0.7;
+}
+
+.bingo-card-square {
+  & .bingo-card__checkbox {
+    display: none;
+  }
+
+  &.active .bingo-card__checkbox {
+    display: block;
+  }
+}

@@ -21,11 +21,12 @@
                       <div class="btn-actions">
                         <a href="/<%= card.url %>" class="btn cyan lighten-2 black-text share-url">
                           <i class="material-icons left">content_copy</i>
-                          click to copy
+                          share link
                         </a>
                       </div>
                       <div class="text-actions">
                         <%= link_to "show", root_url + card.url %> |
+                        <%= link_to "print", "#{root_url}print/#{card.url}" %> |
                         <%= link_to "edit", edit_card_path(card) %> | 
                         <%= link_to "delete", card_path(card), method: :delete %>
                       </div>
