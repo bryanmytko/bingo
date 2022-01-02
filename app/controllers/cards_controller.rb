@@ -19,6 +19,17 @@ class CardsController < ApplicationController
     @entries = random_entries
   end
 
+  def print
+    if params[:path]
+      @card = Card.find_by(url: params[:path])
+    else
+      @card = Card.find(params[:id])
+    end
+
+    @entries = random_entries
+    render layout: "print"
+  end
+
   def edit
     @card = Card.find(params[:id])
   end
