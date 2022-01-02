@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* Entries validation */
-
   const entries = document.getElementById('card_entries');
   
   if(entries) {
