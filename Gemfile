@@ -30,3 +30,5 @@ group :test do
 end
 
 gem "pg", "~> 1.2"
+
+gem "tailwindcss-rails", "~> 2.0"
