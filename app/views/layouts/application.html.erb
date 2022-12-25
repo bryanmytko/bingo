@@ -12,19 +12,16 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
+  <body class="bg-slate-50">
     <!-- <span class="notice"><%= notice %></p> -->
     <!-- <span class="alert"><%= alert %></p> -->
-    <main>
+    <main class="min-h-screen">
     <%= yield %>
-    </main>
-    <footer class="page-footer">
-      <div class="container center-align">
-        <span class="black-text">&copy; <%= DateTime.now.year %></span>
-        <a href="http://bryanmytko.com">Bryan Mytko</a>
-        <span class="black-text">&#9829;</a>
-        <a href="https://github.com/bryanmytko">Github</a>
-      </div>
+    <footer class="h-10 dark:bg-gray-900 sticky top-[100vh] px-2 sm:px-4">
+      <p class="pt-3 text-xs text-center text-gray-500">&copy; 2020-<%= DateTime.now.year %> &hearts;
+        <a href="http://github.com/bryanmytko">Bryan Mytko</a>
+      </p>
     </footer>
+    </main>
   </body>
 </html>
