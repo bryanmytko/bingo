@@ -1,12 +1,12 @@
 <div class="container public-container">
   <%= render "logo", css_classes: "small" %>
-  <div class="main-content bingo-card-container">
-    <div class="bingo-card-title">
+  <div class="">
+    <div class="">
       <h3><%= @card.title %></h3>
     </div>
-    <div class="square-container">
+    <div class="grid grid-cols-5 gap-1">
       <% @entries.each_with_index do |entry, i| %>
-      <div class="square bingo-card-square">
+      <div class="square bingo-card-square text-center p-1 rounded-lg text-md leading-none pt-2">
         <%= (i == @entries.length / 2) ? "FREE SPACE" : entry %>
         <span class="bingo-card__checkbox"></span>
       </div>
