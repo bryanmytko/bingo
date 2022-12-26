@@ -1,23 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
   /* Bingo card marks */
   const items = document.querySelectorAll(".bingo-card-square");
-  const LENGTH = 5;
+  const winner = document.querySelector("#winner");
+  const squares = Array.from(items);
   const WIDTH = 5;
   const grid = [];
 
+  for (let i = 0; i < squares.length; i += WIDTH) {
+    grid.push(squares.slice(i, i + WIDTH).map((_) => 0));
+  }
+
   for (let i = 0; i < items.length; i++) {
+    items[i].id = i;
     items[i].addEventListener("click", function () {
       this.classList.toggle("active");
+      const y = Math.floor(i / 5);
+      const x = i % 5;
+
+      grid[y][x] = grid[y][x] === 0 ? 1 : 0;
+
       checkWinner();
     });
   }
 
-  for (let i = 0; i < items.length; i += WIDTH) {
-    grid.push(items.slice(i, i + WIDTH));
-  }
-
   const checkWinner = () => {
-    console.log(grid);
+    let principal = 0;
+    let secondary = 0;
+
+    const transposedGrid = grid[0].map((_, i) => grid.map((row) => row[i]));
+
+    const rowWin = grid.some((row) => row.every((item) => item === 1));
+    const colWin = transposedGrid.some((row) =>
+      row.every((item) => item === 1)
+    );
+
+    for (let i = 0; i < WIDTH; i++) {
+      for (let j = 0; j < WIDTH; j++) {
+        if (i == j) principal += grid[i][j];
+        if (i + j == WIDTH - 1) secondary += grid[i][j];
+      }
+    }
+
+    const diagWin = principal >= WIDTH || secondary >= WIDTH;
+
+    if (rowWin || colWin || diagWin) return winner.classList.remove("hidden");
+    winner.classList.add("hidden");
   };
 
   /* Copy to clipboard */
