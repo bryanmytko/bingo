@@ -2,10 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.bingo-card-square {
-  cursor: pointer;
+.bingo-card {
+  grid-template-rows: repeat(5, 120px);
+}
 
+.bingo-card-square {
   &.active {
     background-color: #e65252;
   }
+}
+
+footer {
+  display: none;
 }

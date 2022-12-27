@@ -1,11 +1,15 @@
 <%= render "logo", css_classes: "small" %>
-<h3 class="pt-2 text-3xl text-center"><%= @card.title %></h3>
-<div id="winner" class="hidden"><h1 class="text-3xl text-center">BINGO</h1></div>
+<h3 class="pt-2 pb-2 text-3xl text-center"><%= @card.title %></h3>
+<div id="winner" class="hidden w-1/2 p-2 mx-auto my-2 center rounded-xl bg-sky-300 top-9">
+  <h3 class="font-black text-center text-rose-600 text-9xl">
+  BINGO!
+  </h3>
+</div>
 
-<div class="max-w-screen-sm mx-auto">
-  <div class="grid grid-cols-5">
+<div class="max-w-screen-sm mx-auto mb-6">
+  <div class="grid grid-cols-5 gap-2 bingo-card min-w-[640px] bg-sky-900 border-8 border-sky-900 rounded-md">
     <% @entries.each_with_index do |entry, i| %>
-    <div class="bg-yellow-300 shadow-lg aspect-square rounded-xl bingo-card-square">
+    <div class="flex items-center justify-center p-1 text-xs text-center rounded-md shadow-lg cursor-pointer bg-sky-500 leading-2 align-center bingo-card-square position-relative">
       <%= (i == @entries.length / 2) ? "FREE SPACE" : entry %>
     </div>
     <% end %>
