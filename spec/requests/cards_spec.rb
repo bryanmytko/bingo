@@ -30,6 +30,7 @@ describe "/cards", type: :request do
 
       it "deletes the card" do
         card = Card.create!(user: user)
+
         expect {
           delete "/cards/#{card.id}"
         }.to change(Card, :count).by(-1)
@@ -38,6 +39,7 @@ describe "/cards", type: :request do
       it "redirects to the home screen" do
         card = Card.create!(user: user)
         response = delete "/cards/#{card.id}"
+
         expect(response).to be(302)
       end
 
@@ -46,10 +48,28 @@ describe "/cards", type: :request do
 
         it "redirects to the home screen" do
           response = delete "/cards/1"
+
           expect(response).to be(302)
         end
       end
     end
 
+    describe "when the user is not logged" do
+      it "does not delete the card" do
+        card = Card.create!(user: user)
+        response = delete "/cards/#{card.id}"
+
+        expect {
+          delete "/cards/#{card.id}"
+        }.to change(Card, :count).by(0)
+      end
+
+      it "redirects to the home screen" do
+        card = Card.create!(user: user)
+        response = delete "/cards/#{card.id}"
+
+        expect(response).to be(302)
+      end
+    end
   end
 end
