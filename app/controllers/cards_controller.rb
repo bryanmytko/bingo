@@ -42,8 +42,8 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    card = Card.find(params[:id])
-    card.destroy 
+    card = Card.find_by(id: params[:id])
+    card.destroy if card
 
     redirect_to root_path
   end
