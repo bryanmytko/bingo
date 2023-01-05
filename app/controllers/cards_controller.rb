@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :print]
 
   BINGO_CARD_SIZE = 25.freeze
 
@@ -20,13 +20,9 @@ class CardsController < ApplicationController
   end
 
   def print
-    if params[:path]
-      @card = Card.find_by(url: params[:path])
-    else
-      @card = Card.find(params[:id])
-    end
-
+    @card = Card.find_by(url: params[:path])
     @entries = random_entries
+
     render layout: "print"
   end
 
