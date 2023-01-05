@@ -24,6 +24,35 @@ describe "/cards", type: :request do
     end
   end
 
+  describe "GET /:id" do
+    it "shows the card" do
+      card = Card.create!(user: user, entries: ["foo", "bar"])
+      response = get "/cards/#{card.id}"
+
+      expect(response).to be(200)
+    end
+
+    describe "with the path param" do
+      it "shows the card" do
+        card = Card.create!(user: user, entries: ["foo", "bar"])
+        response = get "/#{card.url}"
+
+        expect(response).to be(200)
+      end
+    end
+  end
+
+  describe "GET /print/:id" do
+    describe "with the path param" do
+      it "shows the card" do
+        card = Card.create!(user: user, entries: ["foo", "bar"])
+        response = get "/print/#{card.url}"
+  
+        expect(response).to be(200)
+      end
+    end
+  end
+
   describe "DELETE /:id" do
     describe "when the user is logged" do
       before(:each) { sign_in user }
