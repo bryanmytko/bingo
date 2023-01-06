@@ -53,8 +53,63 @@ describe "/cards", type: :request do
     end
   end
 
+  describe "GET /cards/:id/edit" do
+    describe "when the user is logged in" do
+      before(:each) { sign_in user }
+
+      it "shows the edit page" do
+        card = Card.create!(user: user)
+        response = get "/cards/#{card.id}/edit"
+
+        expect(response).to be(200)
+      end
+    end
+
+    describe "when the user is not logged" do
+      it "redirects to the login screen" do
+        card = Card.create!(user: user)
+        response = get "/cards/#{card.id}/edit"
+
+        expect(response).to be(302)
+      end
+    end
+  end
+
+  describe "PUT /cards/:id" do
+    describe "when the user is logged in" do
+      before(:each) { sign_in user }
+
+      it "updates the card" do
+        card = Card.create!(title: "foo", user: user)
+        put "/cards/#{card.id}", params: {
+          card: {
+            title: "foo2"
+          }
+        }
+        editedCard = Card.find(card.id)
+
+        expect(editedCard.title).to eq("foo2")
+      end
+    end
+
+    describe "when the user is not logged" do
+      it "redirects to the login screen" do
+        card = Card.create!(title: "foo", user: user)
+        response = put "/cards/#{card.id}", params: {
+          card: {
+            title: "foo2"
+          }
+        }
+        editedCard = Card.find(card.id)
+
+        expect(editedCard.title).to eq(card.title)
+        expect(response).to be(302)
+      end
+    end
+  end
+
   describe "DELETE /:id" do
-    describe "when the user is logged" do
+    describe "when the user is logged in" do
       before(:each) { sign_in user }
 
       it "deletes the card" do
