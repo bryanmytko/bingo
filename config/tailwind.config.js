@@ -12,15 +12,12 @@ module.exports = {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
-      padding: {
-        "1/2": "50%",
-        full: "100%",
-      },
     },
   },
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/typography"),
+    require("@tailwindcss/container-queries"),
   ],
 };

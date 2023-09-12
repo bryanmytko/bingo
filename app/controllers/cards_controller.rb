@@ -51,7 +51,9 @@ class CardsController < ApplicationController
   end
 
   def random_entries
-    entries = @card.entries
+    return [] unless @card
+
+    @card.entries
       .split(/[,\,\n]/)
       .sample(BINGO_CARD_SIZE)
   end
