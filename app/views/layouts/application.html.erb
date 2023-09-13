@@ -9,12 +9,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="bg-slate-50">
-    <!-- <span class="notice"><%= notice %></p> -->
-    <!-- <span class="alert"><%= alert %></p> -->
-    <main class="min-h-screen">
+  <body>
+    <span class="notice"><%= notice %></p>
+    <span class="alert"><%= alert %></p>
+    <main class="min-h-screen mx-auto w-11/12">
     <%= yield %>
     <footer class="h-10 dark:bg-gray-900 sticky top-[100vh] px-2 sm:px-4">
       <p class="pt-3 text-xs text-center text-gray-500">&copy; 2020-<%= DateTime.now.year %> &hearts;

@@ -1,13 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  body {
+    background: #202124;
+  }
+
+  .btn-primary,
+  .btn {
+    @apply rounded-md px-3 py-4 inline-block relative bg-blue-800;
+  }
+
+  .btn > i {
+    float: left;
   }
 }
-
-*/
