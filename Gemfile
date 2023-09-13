@@ -16,6 +16,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "hotwire-livereload"
   gem "web-console", ">= 4.1.0"
   gem "rack-mini-profiler", "~> 2.0"
   gem "listen", "~> 3.3"
@@ -33,3 +34,6 @@ gem "pg", "~> 1.2"
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "cssbundling-rails", "~> 1.3"
+
+gem "jsbundling-rails", "~> 1.2"
+gem "redis"
