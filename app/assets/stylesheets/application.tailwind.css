@@ -4,14 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@layer base {
   body {
-    background: #202124;
+    @apply bg-zinc-900;
   }
+}
 
+@layer components {
   .btn-primary,
   .btn {
-    @apply rounded-md px-4 py-4 inline-block relative bg-blue-600 text-white;
+    @apply rounded-md px-4 py-2 inline-block relative bg-blue-600 text-white;
   }
 
   .btn:hover {
@@ -20,5 +22,16 @@
 
   .btn > i {
     @apply float-left mr-2;
+  }
+
+  .pipe-list li {
+    padding: -4px 0 0 0;
+    &:after {
+      margin: 0 2px;
+      content: "|";
+    }
+    &:last-child:after {
+      content: "";
+    }
   }
 }
