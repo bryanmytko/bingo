@@ -1,28 +1,33 @@
-<div class="container-sm grid grid-cols-4 gap-4 mx-auto pt-4">
-  <div class="col-span-3 p-6 overflow-hidden rounded shadow-lg bg-orange-200 rounded-md text-sm">
+<div class="container grid grid-cols-4 gap-4 mx-auto pt-4 w-10/12">
+  <div class="col-span-3 p-6 overflow-hidden rounded shadow-lg bg-gray-200 rounded-md">
     <h3 class="text-2xl font-sans mb-4">My Cards</h3>
-    <p>To share these with your friends, click the button to copy the link and simply send that to them.</p>
-    <p>Each person to use the link will have a fresh card randomly generated for them. They don't need to even sign up or sign in!</p>
-    <table class="card-table">
+    <div class="text-sm pb-4">
+      <p>To share these with your friends, click the button to copy the link and simply send that to them.</p>
+      <p>Each person to use the link will have a fresh card randomly generated for them.</p>
+      <p>They don't need to even sign up or sign in!</p>
+    </div>
+    <table>
       <tbody>
         <% @cards.each do |card| %>
           <tr>
             <td>
-              <h4>
-                <p class="bingo-card-title"><%= card.title %></p>
+              <h4 class="pb-1 text-lg">
+                <p><%= card.title %></p>
               </h4>
-              <div class="bingo-card-actions">
-                <div class="btn-actions">
+              <div class="flex">
+                <div class="mr-4">
                   <a href="/<%= card.url %>" class="btn">
                     <i class="material-icons left">content_copy</i>
                     share link
                   </a>
                 </div>
-                <div class="text-actions">
-                  <%= link_to "show", root_url + card.url %> |
-                  <%= link_to "print", "#{root_url}print/#{card.url}" %> |
-                  <%= link_to "edit", edit_card_path(card) %> | 
-                  <%= link_to "delete", card_path(card), method: :delete %>
+                <div>
+                  <ul class="flex mt-1 pipe-list">
+                    <li><%= link_to "show", root_url + card.url %></li>
+                    <li><%= link_to "print", "#{root_url}print/#{card.url}" %></li>
+                    <li><%= link_to "edit", edit_card_path(card) %></li>
+                    <li><%= link_to "delete", card_path(card), method: :delete %></li>
+                  </ul>
                 </div>
               </div>
             </td>
@@ -30,24 +35,20 @@
         <% end %>
       </tbody>
     </table>
-    <ul class="btn-list"></ul>
   </div>
-  <div class="p-6 overflow-hidden rounded shadow-lg bg-gray-100 rounded-md">
+  <div class="p-6 col-span-1 overflow-hidden shadow-lg bg-gray-100 rounded-md">
     <h3 class="pb-4 text-xl">Create a Bingo Card?</h3>
     <p class="pb-4 text-sm">If you haven't created a card yet start here. You will be asked to fill out at least 75 terms to keep the game fun and exciting.</p>
     <a href="/cards/new" class="btn">
       <i class="material-icons">add_box</i>Create Bingo Card!
     </a>
   </div>
-</div>
-<div>
+  <div class="bg-yellow-200 col-span-4 rounded-md shadow-lg p-6 flex">
   <% if user_signed_in? %>
-    You are currently signed in as <strong><%= current_user.email %></strong>
+    <p class="mr-2">You are currently signed in as <strong><%= current_user.email %></strong></p>
     <%# <%= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
-    <p class="text-white">
-      <%= button_to "(logout)", destroy_user_session_path, method: :delete %>
-    </p>
-
+    <%= button_to "(logout)", destroy_user_session_path, method: :delete %>
     <!-- @TODO should show Card.all with a button for creating new, not rendering the form -->
   <% end %>
+  </div>
 </div>
