@@ -11,10 +11,14 @@
 
   .btn-primary,
   .btn {
-    @apply rounded-md px-3 py-4 inline-block relative bg-blue-800;
+    @apply rounded-md px-4 py-4 inline-block relative bg-blue-600 text-white;
+  }
+
+  .btn:hover {
+    @apply bg-blue-500;
   }
 
   .btn > i {
-    float: left;
+    @apply float-left mr-2;
   }
 }
