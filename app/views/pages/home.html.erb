@@ -1,6 +1,6 @@
-<div class="container-sm grid grid-cols-4 gap-4 mx-auto">
-  <div class="col-span-3 p-6 overflow-hidden rounded shadow-lg bg-gray-700 text-white  rounded-md">
-    <h3 class="text-3xl font-sans">My Cards</h3>
+<div class="container-sm grid grid-cols-4 gap-4 mx-auto pt-4">
+  <div class="col-span-3 p-6 overflow-hidden rounded shadow-lg bg-orange-200 rounded-md text-sm">
+    <h3 class="text-2xl font-sans mb-4">My Cards</h3>
     <p>To share these with your friends, click the button to copy the link and simply send that to them.</p>
     <p>Each person to use the link will have a fresh card randomly generated for them. They don't need to even sign up or sign in!</p>
     <table class="card-table">
@@ -13,7 +13,7 @@
               </h4>
               <div class="bingo-card-actions">
                 <div class="btn-actions">
-                  <a href="/<%= card.url %>" class="btn cyan lighten-2 black-text share-url">
+                  <a href="/<%= card.url %>" class="btn">
                     <i class="material-icons left">content_copy</i>
                     share link
                   </a>
@@ -33,8 +33,8 @@
     <ul class="btn-list"></ul>
   </div>
   <div class="p-6 overflow-hidden rounded shadow-lg bg-gray-100 rounded-md">
-    <h3>Create a Bingo Card?</h3>
-    <p>If you haven't created a card yet start here. You will be asked to fill out at least 75 terms to keep the game fun and exciting.</p>
+    <h3 class="pb-4 text-xl">Create a Bingo Card?</h3>
+    <p class="pb-4 text-sm">If you haven't created a card yet start here. You will be asked to fill out at least 75 terms to keep the game fun and exciting.</p>
     <a href="/cards/new" class="btn">
       <i class="material-icons">add_box</i>Create Bingo Card!
     </a>
@@ -44,7 +44,9 @@
   <% if user_signed_in? %>
     You are currently signed in as <strong><%= current_user.email %></strong>
     <%# <%= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
-    <%= link_to "(logout)", destroy_user_session_path, method: :delete, :class => "navbar-link"  %>
+    <p class="text-white">
+      <%= button_to "(logout)", destroy_user_session_path, method: :delete %>
+    </p>
 
     <!-- @TODO should show Card.all with a button for creating new, not rendering the form -->
   <% end %>
