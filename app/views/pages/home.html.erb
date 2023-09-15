@@ -1,7 +1,7 @@
 <div class="container grid grid-cols-4 gap-4 mx-auto pt-4 w-10/12">
-  <div class="col-span-3 p-6 overflow-hidden rounded shadow-lg bg-gray-200 rounded-md">
-    <h3 class="text-2xl font-sans mb-4">My Cards</h3>
-    <div class="text-sm pb-4">
+  <div class="col-span-3 p-6 overflow-hidden rounded text-gray-400 bg-gray-800 rounded-md">
+    <h3 class="text-xl font-sans mb-4 text-gray-300 uppercase">My Cards</h3>
+    <div class="text-sm pb-4 leading-relaxed">
       <p>To share these with your friends, click the button to copy the link and simply send that to them.</p>
       <p>Each person to use the link will have a fresh card randomly generated for them.</p>
       <p>They don't need to even sign up or sign in!</p>
@@ -11,8 +11,8 @@
         <% @cards.each do |card| %>
           <tr>
             <td>
-              <h4 class="pb-1 text-lg">
-                <p><%= card.title %></p>
+              <h4 class="pb-2 text-md text-gray-300 uppercase ">
+                <%= card.title %>
               </h4>
               <div class="flex">
                 <div class="mr-4">
