@@ -16,6 +16,10 @@
     @apply rounded-md px-4 py-2 inline-block relative bg-blue-600 text-white;
   }
 
+  .btn.btn-action {
+    @apply bg-pink-600;
+  }
+
   .btn:hover {
     @apply bg-blue-500;
   }
