@@ -21,7 +21,7 @@
   }
 
   .btn:hover {
-    @apply bg-blue-500;
+    @apply opacity-80;
   }
 
   .btn > i {
