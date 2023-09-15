@@ -16,6 +16,9 @@
     <span class="notice"><%= notice %></p>
     <span class="alert"><%= alert %></p>
     <main class="min-h-screen mx-auto">
+    <header class="container grid grid-cols-4 gap-4 mx-auto pt-4 w-10/12">
+      <img src=<%= image_path("logo.png") %> alt="bingo thingo" />
+    </header>
     <%= yield %>
     <footer class="h-10 sticky top-[100vh] px-2 sm:px-4 bg-cyan-900">
       <p class="pt-3 text-xs text-center text-zinc-300">&copy; 2020-<%= DateTime.now.year %> &hearts;
