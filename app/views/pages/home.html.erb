@@ -1,4 +1,7 @@
 <div class="container grid grid-cols-12 gap-4 mx-auto pt-4 w-10/12">
+  <div class="col-span-12 bg-amber-400 p-6 rounded">
+    <%= turbo_frame_tag "games" %>
+  </div>
   <div class="col-span-12 lg:col-span-8 xl:col-span-9 p-6 overflow-hidden rounded text-gray-400 bg-gray-800 rounded-md">
     <h3 class="text-xl font-sans mb-4 text-gray-100 uppercase">My Cards</h3>
     <div class="text-sm pb-4 leading-relaxed">
@@ -21,6 +24,14 @@
                     share link
                   </a>
                 </div>
+                <div class="mr-4">
+                  <%= link_to games_path(card: card),
+                    class: "btn",
+                    data: { turbo_method: :post } do %>
+                    start game
+                    <i class="material-icons left">arrow_circle_right</i>
+                  <% end %>
+                </div>
                 <div>
                   <ul class="flex mt-1 pipe-list">
                     <li><%= link_to "show", root_url + card.url %></li>
@@ -38,7 +49,9 @@
   </div>
   <div class="p-6 col-span-12 lg:col-span-4 xl:col-span-3 overflow-hidden shadow-lg bg-gray-200 rounded-md">
     <h3 class="pb-4 text-lg uppercase text-gray-900">Create a Bingo Card?</h3>
-    <p class="pb-4 text-sm text-gray-700">If you haven't created a card yet start here. You will be asked to fill out at least 75 terms to keep the game fun and exciting.</p>
+    <p class="pb-4 text-sm text-gray-700">If you haven't created a card yet start here.
+    Since the cards are randomized feel free to fill out more terms than the board size
+    to keep the game fun and exciting.</p>
     <a href="/cards/new" class="btn">
       <i class="material-icons">add_box</i>Create New Card!
     </a>
@@ -48,7 +61,6 @@
     <p class="mr-2">You are currently signed in as <strong><%= current_user.email %></strong></p>
     <%# <%= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
     <%= button_to "(logout)", destroy_user_session_path, method: :delete %>
-    <!-- @TODO should show Card.all with a button for creating new, not rendering the form -->
   <% end %>
   </div>
 </div>
