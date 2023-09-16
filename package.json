@@ -1,6 +1,7 @@
 {
   "name": "bingo",
   "dependencies": {
+    "@hotwired/turbo-rails": "^7.3.0",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -21,6 +22,6 @@
     "webpack-dev-server": "^3"
   },
   "scripts": {
-    "build": "esbuild app/javascript/entrypoints/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
   }
 }
