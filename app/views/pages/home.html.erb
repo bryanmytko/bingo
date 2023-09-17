@@ -25,12 +25,9 @@
                   </a>
                 </div>
                 <div class="mr-4">
-                  <%= link_to games_path(card: card),
-                    class: "btn",
-                    data: { turbo_method: :post } do %>
-                    start game
-                    <i class="material-icons left">arrow_circle_right</i>
-                  <% end %>
+                  <div id="buttons-<%= card.id %>">
+                    <%= render partial: "games/buttons", locals: { card: card } %>
+                  </div>
                 </div>
                 <div>
                   <ul class="flex mt-1 pipe-list">
