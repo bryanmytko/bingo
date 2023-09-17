@@ -6,14 +6,18 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-         render turbo_stream: [
-          turbo_stream.update("buttons-#{card_id}", partial: "games/buttons", locals: { game: @game })
+        render turbo_stream: [
+          turbo_stream.update(
+            "buttons-#{card_id}",
+            partial: "games/buttons",
+            locals: { game: @game }
+          )
         ]
       end
     end
   end
 
-  private 
+  private
 
   def game_params
     params.require(:game).permit(:card)
