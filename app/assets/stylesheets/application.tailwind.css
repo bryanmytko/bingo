@@ -24,6 +24,10 @@
     @apply opacity-80;
   }
 
+  .btn-disabled {
+    @apply bg-red-600 opacity-80;
+  }
+
   .btn > i {
     @apply float-left mr-2;
   }
