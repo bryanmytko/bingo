@@ -1,0 +1,13 @@
+<% if @game %>
+  <button class="btn btn-disabled" disabled=disabled>
+    game active
+    <i class="material-icons left">block</i>
+  </button
+<% else %>
+  <%= link_to games_path(card: card),
+    class: "btn",
+    data: { turbo_method: :post } do %>
+    start game
+    <i class="material-icons left">arrow_circle_right</i>
+  <% end %>
+<% end %>
