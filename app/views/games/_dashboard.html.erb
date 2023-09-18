@@ -1,7 +1,13 @@
 <div id="game-dashboard" class="col-span-12">
 <% if @game %>
 <div class="col-span-12 bg-amber-400 p-6 rounded">
-  Game Active: <%= game.id %>
+  <p class="pb-4">Game Active: <%= game.id %></p>
+  <%= link_to games_path(game: game),
+    class: "btn",
+    data: { turbo_method: :put } do %>
+    end game
+    <i class="material-icons left">arrow_circle_right</i>
+  <% end %>
 </div>
 <% end %>
 </div>
