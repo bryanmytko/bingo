@@ -1,0 +1,9 @@
+<div class="max-w-screen-sm mx-auto mb-6">
+  <div class="grid grid-cols-5 gap-2 bingo-card min-w-[640px] bg-sky-900 border-8 border-sky-900 rounded-md">
+    <% random_entries.each_with_index do |entry, i| %>
+    <div class="flex items-center justify-center p-1 text-xs text-center rounded-md shadow-lg cursor-pointer bg-sky-500 leading-2 align-center bingo-card-square position-relative">
+      <%= (i == random_entries.length / 2) ? "FREE SPACE" : entry %>
+    </div>
+    <% end %>
+  </div>
+</div>
