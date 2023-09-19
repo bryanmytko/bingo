@@ -1,12 +1,16 @@
 class Game < ApplicationRecord
-  GAME_STATES = %w(active completed paused)
+  GAME_STATES = %w[active completed paused].freeze
 
   validates :status, inclusion: { in: GAME_STATES }
 
   belongs_to :user
-  has_one :card
+  belongs_to :card
+
+  def active?
+    %w[active].include? status
+  end
 
   def started?
-    %w(completed paused).include? status
+    %w[completed paused].include? status
   end
 end

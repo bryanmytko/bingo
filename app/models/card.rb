@@ -2,11 +2,11 @@ class Card < ApplicationRecord
   belongs_to :user
   before_create :generate_url
 
-  BINGO_CARD_SIZE = 25.freeze
+  BINGO_CARD_SIZE = 25
 
   def random_entries
     entries
-      .split(/[,\,\n]/)
+      .split(/[,,\n]/)
       .sample(BINGO_CARD_SIZE)
   end
 
