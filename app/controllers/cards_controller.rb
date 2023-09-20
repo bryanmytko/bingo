@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :print]
+  skip_before_action :authenticate_user!, only: %i[show print]
 
-  BINGO_CARD_SIZE = 25.freeze
+  BINGO_CARD_SIZE = 25
 
   def create
     @card = current_user.cards.create(card_params)
@@ -10,11 +10,11 @@ class CardsController < ApplicationController
   end
 
   def show
-    if params[:path]
-      @card = Card.find_by(url: params[:path])
-    else
-      @card = Card.find(params[:id])
-    end
+    @card = if params[:path]
+              Card.find_by(url: params[:path])
+            else
+              Card.find(params[:id])
+            end
 
     @entries = random_entries
   end
@@ -39,7 +39,7 @@ class CardsController < ApplicationController
 
   def destroy
     card = Card.find_by(id: params[:id])
-    card.destroy if card
+    card&.destroy
 
     redirect_to root_path
   end
@@ -53,8 +53,6 @@ class CardsController < ApplicationController
   def random_entries
     return [] unless @card
 
-    @card.entries
-      .split(/[,\,\n]/)
-      .sample(BINGO_CARD_SIZE)
+    @card.entries.split(/[,,\n]/).sample(BINGO_CARD_SIZE)
   end
 end
