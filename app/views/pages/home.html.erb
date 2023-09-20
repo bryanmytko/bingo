@@ -17,10 +17,7 @@
               </h4>
               <div class="flex pb-4 mb-3 border-gray-700 border-b">
                 <div class="mr-4">
-                  <a href="/<%= card.url %>" class="btn btn-action">
-                    <i class="material-icons left">content_copy</i>
-                    share link
-                  </a>
+                  <%= render partial: "games/share", locals: { card: card } %>
                 </div>
                 <div class="mr-4">
                   <div id="buttons-<%= card.id %>">
