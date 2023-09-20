@@ -1,10 +1,7 @@
 class GameConnectionsController < ApplicationController
   def create
-    p "params: #{params}"
     @card = Card.find(params[:card])
     @game = Game.find_by(card: @card)
-    p "card: #{@card}"
-    p "game: #{@card}"
 
     @game_connection = GameConnection.find_or_create_by(user: current_user, game: @game)
     return unless connected_to_active_game?
