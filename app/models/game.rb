@@ -13,4 +13,8 @@ class Game < ApplicationRecord
   def started?
     %w[completed paused].include? status
   end
+
+  def title
+    card.title || ""
+  end
 end
