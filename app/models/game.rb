@@ -6,6 +6,8 @@ class Game < ApplicationRecord
   belongs_to :user
   belongs_to :card
 
+  has_many :game_connections
+
   def active?
     %w[active].include? status
   end

@@ -1,5 +1,7 @@
 class Card < ApplicationRecord
   belongs_to :user
+  has_one :game
+
   before_create :generate_url
 
   BINGO_CARD_SIZE = 25
