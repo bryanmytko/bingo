@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :cards
-  resources :games, only: %i[create update]
+  resources :games, only: %i[create destroy update]
   resources :game_connections, only: %i[create]
 
   get '/print/*path' => "cards#print", constraints: ->(req) { req.fullpath =~ %r/\/[a-zA-Z0-9]{10}/ }
