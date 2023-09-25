@@ -5,9 +5,9 @@
   <p class="pb-4">Game Status: "<%= game.status %>"</p>
   <p class="pb-4">Users:</p>
   <div data-game-dashboard="users"></div>
-  <%= link_to game_path(game, status: "completed"),
+  <%= link_to game_path(game),
     class: "btn",
-    data: { turbo_method: :put } do %>
+    data: { turbo_method: :delete } do %>
     end game
     <i class="material-icons left">arrow_circle_right</i>
   <% end %>
