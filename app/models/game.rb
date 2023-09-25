@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game < ApplicationRecord
   GAME_STATES = %w[active completed paused].freeze
 
@@ -7,6 +9,8 @@ class Game < ApplicationRecord
   belongs_to :card
 
   has_many :game_connections
+
+  delegate :id, to: :card
 
   def active?
     %w[active].include? status
@@ -18,5 +22,10 @@ class Game < ApplicationRecord
 
   def title
     card.title || ""
+  end
+
+  def complete!
+    update(status: "completed")
+    game_connections.destroy_all
   end
 end

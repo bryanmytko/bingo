@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GameConnection < ApplicationRecord
   after_create_commit { broadcast_connected }
   belongs_to :user
