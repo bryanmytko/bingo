@@ -3,11 +3,11 @@
 Rails.application.routes.draw do
   mount ActionCable.server => "/cable"
 
-  root to: "pages#home"
+  root to: "pages#dashboard"
   devise_for :users
 
   resources :cards
-  resources :games, only: %i[create destroy update]
+  resources :games, only: %i[create destroy]
   resources :game_connections, only: %i[create]
 
   get '/print/*path' => "cards#print", constraints: ->(req) { req.fullpath =~ %r/\/[a-zA-Z0-9]{10}/ }
