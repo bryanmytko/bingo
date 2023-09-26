@@ -1,7 +1,0 @@
-<%= turbo_stream.update "buttons-#{@game.card_id}" do %>
-  <%= render partial: "games/buttons", locals: { card: @game.card } %>
-<% end %>
-
-<%= turbo_stream.update "game-dashboard" do %>
-  <%= render partial: "games/dashboard", locals: { game: @game } %>
-<% end %>

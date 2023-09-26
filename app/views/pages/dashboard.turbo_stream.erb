@@ -1,0 +1,7 @@
+<%= turbo_stream.update "cards-table" do %>
+  <%= render partial: "pages/cards_table", locals: { cards: current_user_cards } %>
+<% end %>
+
+<%= turbo_stream.update "game-status" do %>
+  <%= render partial: "pages/game_status", locals: { game: @game } %>
+<% end %>

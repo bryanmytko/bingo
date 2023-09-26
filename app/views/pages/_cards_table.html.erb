@@ -1,0 +1,33 @@
+<div id="cards-table">
+  <table>
+    <tbody>
+      <% cards.each do |card| %>
+        <tr>
+          <td>
+            <h4 class="pb-3 text-md text-gray-100 uppercase ">
+              <%= card.title %>
+            </h4>
+            <div class="flex pb-4 mb-3 border-gray-700 border-b">
+              <div class="mr-4">
+                <%= render partial: "pages/share_card", locals: { card: card } %>
+              </div>
+              <div class="mr-4">
+                <div id="buttons-<%= card.id %>">
+                  <%= render partial: "pages/card_buttons", locals: { card: card } %>
+                </div>
+              </div>
+              <div>
+                <ul class="flex mt-1 pipe-list">
+                  <li><%= link_to "show", root_url + card.url %></li>
+                  <li><%= link_to "print", "#{root_url}print/#{card.url}" %></li>
+                  <li><%= link_to "edit", edit_card_path(card) %></li>
+                  <li><%= link_to "delete", card_path(card), method: :delete %></li>
+                </ul>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
