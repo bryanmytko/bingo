@@ -1,5 +1,5 @@
 <div class="container mx-auto pt-4 w-4/12 bg-gray-800 p-6 mt-20 rounded">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), turbo: false) do |form| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false  }) do |form| %>
   <h1 class="text-2xl my-4 text-amber-400">Login</h1>
   <div class="md:flex md:items-center mb-6">
     <div class="md:w-2/3">
