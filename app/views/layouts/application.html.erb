@@ -17,7 +17,9 @@
     <span class="alert"><%= alert %></p>
     <main class="min-h-screen mx-auto">
     <header class="container grid grid-cols-4 gap-4 mx-auto pt-4 w-10/12">
-      <img src=<%= image_path("logo.png") %> alt="bingo thingo" />
+      <a href="/">
+        <img src=<%= image_path("logo.png") %> alt="bingo thingo" />
+      </a>
     </header>
     <%= yield %>
     <footer class="h-10 sticky top-[100vh] px-2 sm:px-4 bg-gray-800">
