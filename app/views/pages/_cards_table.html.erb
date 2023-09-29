@@ -21,7 +21,7 @@
                   <li><%= link_to "show", root_url + card.url %></li>
                   <li><%= link_to "print", "#{root_url}print/#{card.url}" %></li>
                   <li><%= link_to "edit", edit_card_path(card) %></li>
-                  <li><%= link_to "delete", card_path(card), method: :delete %></li>
+                  <li><%= link_to "delete", card_path(card), data: { turbo_method: :delete } %></li>
                 </ul>
               </div>
             </div>
