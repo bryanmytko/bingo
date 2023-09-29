@@ -11,6 +11,41 @@
 }
 
 @layer components {
+  .flash {
+    @apply py-1 text-center text-white text-sm leading-loose;
+    animation-delay: 1.5s;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+
+    &.notice {
+      @apply bg-green-400 text-green-900;
+    }
+
+    &.alert {
+      @apply bg-red-400 text-red-900;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  .fade-out {
+    animation-name: fade-out;
+  }
+
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
   .btn-primary,
   .btn {
     @apply rounded-md px-4 py-2 inline-block relative bg-blue-600 text-white;

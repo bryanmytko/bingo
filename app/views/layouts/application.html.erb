@@ -13,10 +13,11 @@
   </head>
 
   <body>
-    <span class="notice"><%= notice %></p>
-    <span class="alert"><%= alert %></p>
+    <% flash.each do |key, msg| %>
+      <p class="fade-out animated flash <%= key %>"><%= msg %></p>
+    <% end %>
     <main class="min-h-screen mx-auto">
-    <header class="container grid grid-cols-4 gap-4 mx-auto pt-4 w-10/12">
+    <header class="container grid grid-cols-4 gap-4 mx-auto pt-10 w-10/12">
       <a href="/">
         <img src=<%= image_path("logo.png") %> alt="bingo thingo" />
       </a>
