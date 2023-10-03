@@ -8,13 +8,13 @@ describe "/", type: :request do
 
     it "is successful" do
       get "/"
-  
+
       expect(response).to have_http_status(200)
     end
-  
+
     it "renders the dashboard" do
       get "/"
-  
+
       expect(response.body).to include("You are currently signed in as")
     end
   end
@@ -22,15 +22,15 @@ describe "/", type: :request do
   describe "when the user is not logged in" do
     it "redirects to the login page" do
       get "/"
-  
+
       expect(response).to have_http_status(302)
     end
-  
+
     it "renders the login form" do
       get "/"
       follow_redirect!
-      
-      expect(response.body).to include("Log in")
+
+      expect(response.body).to include("Login")
     end
   end
 end
