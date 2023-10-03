@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   def create
     @card = current_user.cards.create(card_params)
 
-    redirect_to root_path
+    redirect_to root_path, notice: "#{@card.title} card created!"
   end
 
   def show

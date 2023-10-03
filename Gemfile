@@ -7,7 +7,7 @@ gem "rails", "~> 7.0.4", ">= 7.0.4"
 
 gem "bootsnap", ">= 1.4.4", require: false
 gem "cssbundling-rails", "~> 1.3"
-gem "devise"
+gem "devise", "~> 4.9"
 gem "jbuilder", "~> 2.7"
 gem "pg", "~> 1.2"
 gem "puma", "~> 5.0"
