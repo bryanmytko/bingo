@@ -10,7 +10,7 @@ class Game < ApplicationRecord
 
   has_many :game_connections
 
-  delegate :id, to: :card
+  delegate :card_id, to: :card
 
   def active?
     %w[active].include? status
