@@ -81,7 +81,6 @@ describe "/cards", type: :request do
     describe "when the user is logged in" do
       before(:each) { sign_in user }
 
-      k
       it "updates the card" do
         card = Card.create!(title: "foo", user: user)
         put "/cards/#{card.id}", params: {
@@ -89,9 +88,9 @@ describe "/cards", type: :request do
             title: "foo2"
           }
         }
-        editedCard = Card.find(card.id)
+        edited_card = Card.find(card.id)
 
-        expect(editedCard.title).to eq("foo2")
+        expect(edited_card.title).to eq("foo2")
       end
     end
 
