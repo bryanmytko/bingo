@@ -1,40 +1,36 @@
-
-<div class="container main-container">
-  <div class="row">
-    <div class="col s12 m8 l6 offset-m2 offset-l3">
-      <%= render "logo" %>
-      <div class="card-panel">
-        <div class="row no-margin-bottom">
-          <h3>Sign up</h3>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "Sign up", class: "btn" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+<div class="container mx-auto pt-4 w-4/12 bg-gray-800 p-6 mt-20 rounded">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |form| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <h1 class="text-2xl my-4 text-amber-400">Signup</h1>
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:w-2/3">
+      <label class="block text-gray-200 font-bold mb-2 md:mb-2 pr-4" for="title">
+        Email:
+      </label>
+      <%= form.email_field :email,
+        class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
     </div>
   </div>
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:w-2/3">
+      <label class="block text-gray-200 font-bold mb-2 md:mb-2 pr-4" for="title">
+        Password:
+      </label>
+      <%= form.password_field :password, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+    </div>
+  </div>
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:w-2/3">
+      <label class="block text-gray-200 font-bold mb-2 md:mb-2 pr-4" for="title">
+        Password Confirmation:
+      </label>
+      <%= form.password_field :password_confirmation, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+    </div>
+  </div>
+  <div class="md:flex md:items-center mb-4">
+    <div class="md:w-2/3">
+      <%= form.submit "Sign up", class: "btn card-create-submit" %>
+    </div>
+  </div>
+  <% end %>
 </div>
-
-<%#= render "devise/shared/links" %>
